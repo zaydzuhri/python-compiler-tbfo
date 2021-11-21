@@ -3,7 +3,6 @@ false class is return none continue for true def from while and not with as elif
 Variables:
 
 Productions:
-ATTRIBUTE -> variable;
 BOOLEAN -> true | false;
 CLASS -> class VARIABLE | class VARIABLE ( INSTANCE );
 INSTANCE -> variable | variable . INSTANCE;
@@ -13,7 +12,14 @@ VARIABLE -> variable;
 FUNCTION -> variable ( ARGUMENT ) | variable ( );
 ARGUMENT -> VARIABLE | INSTANCE | METHOD | FUNCTION | VARIABLE , | INSTANCE , | METHOD , | FUNCTION , ; 
 METHOD -> variable . FUNCTION;
-IF -> if VARIABLE : | if ( VARIABLE ) : | if BOOLEAN : | if ( BOOLEAN ) :
+IF -> if VARIABLE : | if ( VARIABLE ) : | if BOOLEAN : | if ( BOOLEAN ) : | IF ELIF | IF ELSE | IF IN | IF BREAK | IF CONTINUE | IF PASS
+ELIF -> elif VARIABLE : | elif ( VARIABLE ) : | elif BOOLEAN : | elif ( BOOLEAN ) : | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS
+ELSE -> else : S;
+IN -> VARIABLE in VARIABLE : S;
+BREAK -> break ;
+CONTINUE -> continue ;
+PASS -> pass ;
+WHILE -> while VARIABLE : S | while ( VARIABLE ) : S | while BOOLEAN : S | while ( BOOLEAN ) : S;
 
 
 
