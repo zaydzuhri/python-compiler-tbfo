@@ -13,14 +13,13 @@ def file_tokenizer(file_name: str) -> list:
     contents = file.read()
     file.close()
 
-    operators = [
-        r'\+', r'\-', r'\*', '/', r'\*\*', '//', '%',                
-        '<', '>', '<=', '>=', '==', '!=',
-        r'\(', r'\)', r'\{', r'\}', ';', ':', ',', '=', '\'', '\"', 
-        '\n', ' ', '\t'
+    delimiters = [
+        r'\+', r'\-', r'\*', '/', r'\*\*', '//', '%', '<', '>', '<=', '>=',
+        '==', '!=', r'\(', r'\)', r'\{', r'\}', ';', ':', ',', '=', '\'',
+        '\"', '<=', '>=', ':=', '\n', ' ', '\t'
     ]
 
-    res = re.split('([' + r"".join(operators) + '])', contents)
+    res = re.split('([' + r"".join(delimiters) + '])', contents)
 
     return filter_unnecessary_tokens(res)
 
