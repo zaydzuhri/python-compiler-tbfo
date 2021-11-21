@@ -1,0 +1,21 @@
+Terminals:
+false class is return none continue for true def from while and not with as elif if or else import pass break in raise variable
+Variables:
+
+Productions:
+ATTRIBUTE -> variable;
+BOOLEAN -> true | false;
+CLASS -> class VARIABLE | class VARIABLE ( INSTANCE );
+INSTANCE -> variable | variable . INSTANCE;
+IMPORT -> from INSTANCE import VARIABLE | import VARIABLE;
+IMPORT -> from INSTANCE import VARIABLE as VARIABLE | import INSTANCE as VARIABLE;
+VARIABLE -> variable;
+FUNCTION -> variable ( ARGUMENT ) | variable ( );
+ARGUMENT -> VARIABLE | INSTANCE | METHOD | FUNCTION | VARIABLE , | INSTANCE , | METHOD , | FUNCTION , ; 
+METHOD -> variable . FUNCTION;
+IF -> if VARIABLE : | if ( VARIABLE ) : | if BOOLEAN : | if ( BOOLEAN ) :
+
+
+
+
+WITH -> with FUNCTION : | with FUNCTION as VARIABLE :;
