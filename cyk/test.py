@@ -1,13 +1,16 @@
+import numpy as np
+from scipy import inv
+
 def guacamole(x):
 # testing comments
     if x == 0:
-        return 0
+        x += 1
     elif x + 4 == 1:
         if True:
-            return 3
+            foo()
         else:
-            return 2
+            x = y / 2
     elif x == 32:
-        return 4
+        func(foo)
     else:
-        return "guacamole"
+        print("guacamole")

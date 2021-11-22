@@ -2,7 +2,7 @@ from dfa import accepts, dfa
 from tokenizer import file_tokenizer
 
 def get_cnf(file_path):
-    lines = open("txt/cnfweb.txt").read().splitlines()
+    lines = open(file_path).read().splitlines()
     for i in range(len(lines)):
         j = 0
         while lines[i][j] == ' ':
@@ -96,14 +96,18 @@ def cyk_parse(tokenized, grammar):
                         for right_terms in grammar[left_side]:
                             if right_terms[0] in table[start][i] and right_terms[1] in table[i+1][stop]:
                                 table[start][stop].append(left_side)
-    
-    print(table)
+    i = 0
+    for elmt in table[0]:
+        print(i, elmt)
+        i += 1
     return 'S' in table[0][str_length - 1]
 
 if __name__ == "__main__":
-    tokenized = file_tokenizer("cyk/test3.py")
+    tokenized = file_tokenizer("cyk/test.py")
     clean = clean_tokenized(tokenized)
-    print(clean)
-    print(get_cnf('txt/cnfweb.txt'))
+    i = 0
+    for token in clean:
+        print(i, token)
+        i += 1
     print(cyk_parse(clean, get_cnf('txt/cnfweb.txt')))
     
