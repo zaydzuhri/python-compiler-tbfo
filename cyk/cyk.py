@@ -2,7 +2,28 @@ from dfa import accepts, dfa
 from tokenizer import file_tokenizer
 
 def get_cnf(file_path):
-    rules = open(file_path).read().split('\n')
+    lines = open("txt/cnfweb.txt").read().splitlines()
+    for i in range(len(lines)):
+        j = 0
+        while lines[i][j] == ' ':
+            j += 1
+        lines[i] = lines[i][j:]
+
+    rules = []
+    i = 0
+    j = 0
+    while i < len(lines):
+        if lines[i][0] != '|':
+            if j < len(lines) - 1: j += 1 
+            while lines[j][0] == '|':
+                j += 1
+            if j == i + 1 or j == i:
+                rules.append(lines[i])
+            else:
+                rules.append(' '.join(lines[i:j]))
+        i += 1
+        j = i
+    
     cnf_dict = {}
 
     for rule in rules:
@@ -83,4 +104,6 @@ if __name__ == "__main__":
     tokenized = file_tokenizer("cyk/test3.py")
     clean = clean_tokenized(tokenized)
     print(clean)
-    print(cyk_parse(clean, get_cnf('txt\cnf.txt')))
+    print(get_cnf('txt/cnfweb.txt'))
+    print(cyk_parse(clean, get_cnf('txt/cnfweb.txt')))
+    
