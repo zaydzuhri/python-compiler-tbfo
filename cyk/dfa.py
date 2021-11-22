@@ -25,7 +25,6 @@ dfa = {0:{'a':1, 'b':1, 'c':1, 'd':1, 'e':1, 'f':1,
             'W':1, 'X':1, 'Y':1, 'Z':1, '_':1, '0':1,
             '1':1, '2':1, '3':1, '4':1, '5':1, '6':1,
             '7':1, '8':1, '9':1}}
-            
 def accepts(transitions,initial,accepting,s):
     # function to check accepting value
     state = initial
@@ -36,13 +35,3 @@ def accepts(transitions,initial,accepting,s):
             return False
     return state in accepting
 
-infile = open(r'.\infile.txt')
-outfile = open(r'.\outfile.txt','w')
-
-for line in infile.readlines():
-    line = line.rstrip()  # remove \n char
-    acc_or_reject = 'Accepted' if accepts(dfa, 0, {1}, line) else 'Rejected'
-    print(line, '->', acc_or_reject ,file=outfile)
-
-infile.close()
-outfile.close()

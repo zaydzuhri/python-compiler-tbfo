@@ -1,5 +1,5 @@
 Terminals:
-false class is return none continue for true def from while and not with as elif if or else import pass break in raise variable newline strcontent ( ) . + - * ** / = & ^ % < > , : " ' ! #
+false class is return none continue for true def from while and not with as elif if or else import pass break in raise variable newline strcontent number ( ) . + - * ** / = & ^ % < > , : " ' ! #
 Variables:
 S ARGUMENT ASSIGNMENT BOOLEAN BREAK CLASS COMMENT CONTINUE DEF ELIF ELSE EXPRESSION FOR FUNCTION IMPORT IMPORTAS IN INSTANCE IS METHOD MULSTR NL NONE OPERATOR PASS RAISE STRCONTENT STRING VAL VARIABLE WHILE WITH
 Productions:
