@@ -6,158 +6,177 @@
             | H5 NL
             | H6 NL
             | H7 S
-            | H8 RETURN
-            | H10 H9
-            | H12 H11
-            | H13 VARIABLE
-            | H13 FUNCTION
+            | H7 RETURN
+            | H9 H8
+            | H11 H10
+            | H12 VARIABLE
+            | H12 FUNCTION
+            | H13 S
             | H14 S
             | H15 S
-            | H16 S
             | FOR FOR
             | FOR IN
             | FOR BREAK
             | FOR CONTINUE
             | FOR PASS
+            | H16 NL
             | H17 NL
             | H18 NL
             | H19 NL
-            | H20 NL
-            | IF ELIF
+            | H20 S
             | IF ELSE
             | IF IN
             | IF BREAK
             | IF CONTINUE
             | IF PASS
             | IF IS
+            | IF IF
+            | return
             | H21 NL
-            | H22 NL
-            | H24 H23
-            | H25 H23
-            | H26 S
-            | H27 S
-            | H28 S
+            | H22 VARIABLE
+            | H23 NL
+            | H22 VAL
+            | H24 NL
+            | H25 NL
+            | H27 H26
+            | H28 H26
             | H29 S
             | H30 S
             | H31 S
             | H32 S
             | H33 S
             | H34 S
+            | H35 S
+            | H36 S
+            | H37 S
             | variable
-            | H35 VARIABLE
-            | H35 VAL
-            | H36 H23
+            | H38 VARIABLE
+            | H38 VAL
+            | H39 H26
             | true
             | false
             | number
-            | H37 VAL
-            | H38 H23
+            | H40 VAL
+            | H41 H26
             | none
             | newline
-            | H39 S
-            | H40 NL
-            | H41 H11
-            | H42 H9
-  ARGUMENT -> VARIABLE H43
-            | INSTANCE H43
-            | METHOD H43
-            | FUNCTION H43
-            | variable
-            | H35 VARIABLE
-            | H35 VAL
-            | H36 H23
-            | H44 FUNCTION
-            | true
-            | false
-            | number
-            | H37 VAL
-            | H38 H23
-            | none
-            | H45 INSTANCE
-            | H10 H9
-            | H12 H11
-            | H24 H23
-            | H25 H23
-ASSIGNMENT -> H46 H47
-            | H48 H47
-            | H49 H47
-            | H50 H47
-            | H51 H47
-            | H52 H47
-            | H53 H47
-            | H54 H47
-            | H55 H47
-            | =
-   BOOLEAN -> true
-            | false
-     BREAK -> H56 NL
-  CONTINUE -> H57 NL
-      ELIF -> H59 H58
-            | H60 H58
-            | H61 H58
-            | H62 H58
+            | H42 S
+            | H44 H43
+            | H45 H43
+            | H46 H43
+            | H47 H43
             | ELIF ELIF
             | ELIF ELSE
             | ELIF IN
             | ELIF BREAK
             | ELIF CONTINUE
             | ELIF PASS
-      ELSE -> H63 S
-EXPRESSION -> H35 VARIABLE
-            | H35 EXPRESSION
-       FOR -> H14 S
+            | ELIF IF
+            | H48 NL
+            | H49 H10
+            | H50 H8
+  ARGUMENT -> VARIABLE H51
+            | INSTANCE H51
+            | METHOD H51
+            | FUNCTION H51
+            | variable
+            | H38 VARIABLE
+            | H38 VAL
+            | H39 H26
+            | H52 FUNCTION
+            | true
+            | false
+            | number
+            | H40 VAL
+            | H41 H26
+            | none
+            | H53 INSTANCE
+            | H9 H8
+            | H11 H10
+            | H27 H26
+            | H28 H26
+ASSIGNMENT -> H54 H55
+            | H56 H55
+            | H57 H55
+            | H58 H55
+            | H59 H55
+            | H60 H55
+            | H61 H55
+            | H62 H55
+            | H63 H55
+            | =
+   BOOLEAN -> true
+            | false
+     BREAK -> H64 NL
+  CONTINUE -> H65 NL
+      ELIF -> H44 H43
+            | H45 H43
+            | H46 H43
+            | H47 H43
+            | ELIF ELIF
+            | ELIF ELSE
+            | ELIF IN
+            | ELIF BREAK
+            | ELIF CONTINUE
+            | ELIF PASS
+            | ELIF IF
+      ELSE -> H66 S
+EXPRESSION -> H38 VARIABLE
+            | H38 EXPRESSION
+       FOR -> H13 S
+            | H14 S
             | H15 S
-            | H16 S
             | FOR FOR
             | FOR IN
             | FOR BREAK
             | FOR CONTINUE
             | FOR PASS
-  FUNCTION -> H24 H23
-            | H25 H23
-        IF -> H17 NL
+  FUNCTION -> H27 H26
+            | H28 H26
+        IF -> H16 NL
+            | H17 NL
             | H18 NL
             | H19 NL
-            | H20 NL
-            | IF ELIF
+            | H20 S
             | IF ELSE
             | IF IN
             | IF BREAK
             | IF CONTINUE
             | IF PASS
             | IF IS
-        IN -> H64 VARIABLE
-            | H64 FUNCTION
-            | H65 METHOD
-  INSTANCE -> H45 INSTANCE
+            | IF IF
+        IN -> H67 VARIABLE
+            | H67 FUNCTION
+            | H68 METHOD
+  INSTANCE -> H53 INSTANCE
             | variable
-            | H35 VARIABLE
-            | H35 VAL
-            | H36 H23
+            | H38 VARIABLE
+            | H38 VAL
+            | H39 H26
             | true
             | false
             | number
-            | H37 VAL
-            | H38 H23
+            | H40 VAL
+            | H41 H26
             | none
-            | H10 H9
-            | H12 H11
-        IS -> H66 VARIABLE
-            | H66 VAL
-    METHOD -> H44 FUNCTION
+            | H9 H8
+            | H11 H10
+        IS -> H69 VARIABLE
+            | H69 VAL
+    METHOD -> H52 FUNCTION
     MULSTR -> newline
-            | H39 STRCONTENT
-            | STRCONTENT H39
-            | H67 MULSTR
+            | H42 STRCONTENT
+            | STRCONTENT H42
+            | H70 MULSTR
         NL -> newline
-            | H39 S
+            | H42 S
   OPERATOR -> +
             | -
             | *
             | /
             | %
-            | H49 H49
-            | H50 H50
+            | H57 H57
+            | H58 H58
             | &
             | ^
             | and
@@ -165,191 +184,191 @@ EXPRESSION -> H35 VARIABLE
             | not
             | >
             | <
-            | H68 H47
-            | H69 H47
-            | H47 H47
-            | H70 H47
-      PASS -> H71 NL
+            | H71 H55
+            | H72 H55
+            | H55 H55
+            | H73 H55
+      PASS -> H74 NL
     RETURN -> return
-            | H72 NL
-            | H73 VARIABLE
-            | H74 NL
-            | H73 VAL
+            | H21 NL
+            | H22 VARIABLE
+            | H23 NL
+            | H22 VAL
 STRCONTENT -> strcontent
             | STRCONTENT STRCONTENT
             | variable
-            | H35 VARIABLE
-            | H35 VAL
-            | H36 H23
+            | H38 VARIABLE
+            | H38 VAL
+            | H39 H26
             | true
             | false
             | number
-            | H37 VAL
-            | H38 H23
+            | H40 VAL
+            | H41 H26
             | none
-            | H10 H9
-            | H12 H11
+            | H9 H8
+            | H11 H10
        VAL -> number
-            | H37 VAL
-            | H38 H23
+            | H40 VAL
+            | H41 H26
             | none
   VARIABLE -> variable
-            | H35 VARIABLE
-            | H35 VAL
-            | H36 H23
+            | H38 VARIABLE
+            | H38 VAL
+            | H39 H26
             | true
             | false
             | number
-            | H37 VAL
-            | H38 H23
+            | H40 VAL
+            | H41 H26
             | none
-            | H10 H9
-            | H12 H11
-     WHILE -> H26 S
-            | H27 S
-            | H28 S
-            | H29 S
+            | H9 H8
+            | H11 H10
+     WHILE -> H29 S
             | H30 S
             | H31 S
             | H32 S
             | H33 S
             | H34 S
-        H0 -> S H39
+            | H35 S
+            | H36 S
+            | H37 S
+        H0 -> S H42
         H1 -> H76 VARIABLE
         H2 -> H76 EXPRESSION
         H3 -> H77 VARIABLE
         H4 -> H78 VARIABLE
-        H5 -> H79 H58
-        H6 -> H80 H58
+        H5 -> H79 H43
+        H6 -> H80 H43
         H7 -> H81 NL
-        H8 -> H82 NL
-        H9 -> '
-       H10 -> H9 STRCONTENT
-       H11 -> "
-       H12 -> H11 STRCONTENT
-       H13 -> raise
-       H14 -> H83 H58
-       H15 -> H84 H58
-       H16 -> H85 H58
-       H17 -> H86 H58
-       H18 -> H87 H58
-       H19 -> H88 H58
-       H20 -> H89 H58
-       H21 -> H90 VARIABLE
-       H22 -> H91 VARIABLE
-       H23 -> )
-       H24 -> H25 ARGUMENT
-       H25 -> VARIABLE H92
-       H26 -> H93 H58
-       H27 -> H94 H58
-       H28 -> H95 H58
-       H29 -> H96 H58
-       H30 -> H97 H58
-       H31 -> H98 H58
-       H32 -> H99 H58
-       H33 -> H100 H58
-       H34 -> H101 H58
-       H35 -> VARIABLE OPERATOR
-       H36 -> H92 VARIABLE
-       H37 -> H102 OPERATOR
-       H38 -> H92 VAL
-       H39 -> newline
-       H40 -> H103 STRCONTENT
-       H41 -> H104 H11
-       H42 -> H105 H9
-       H43 -> ,
-       H44 -> H106 H107
-       H45 -> VARIABLE H107
-       H46 -> +
-       H47 -> =
-       H48 -> -
-       H49 -> *
-       H50 -> /
-       H51 -> H49 H49
-       H52 -> H50 H50
-       H53 -> &
-       H54 -> ^
-       H55 -> %
-       H56 -> break
-       H57 -> continue
-       H58 -> :
-       H59 -> H108 VARIABLE
-       H60 -> H109 H23
-       H61 -> H108 BOOLEAN
-       H62 -> H110 H23
-       H63 -> H111 H58
-       H64 -> VARIABLE H112
-       H65 -> VARIABLE IN
-       H66 -> H106 H113
-       H67 -> STRCONTENT H39
-       H68 -> >
-       H69 -> <
-       H70 -> !
-       H71 -> pass
-       H72 -> H73 VARIABLE
-       H73 -> return
-       H74 -> H73 VAL
+        H8 -> '
+        H9 -> H8 STRCONTENT
+       H10 -> "
+       H11 -> H10 STRCONTENT
+       H12 -> raise
+       H13 -> H82 H43
+       H14 -> H83 H43
+       H15 -> H84 H43
+       H16 -> H85 H43
+       H17 -> H86 H43
+       H18 -> H87 H43
+       H19 -> H88 H43
+       H20 -> IF ELIF
+       H21 -> H22 VARIABLE
+       H22 -> return
+       H23 -> H22 VAL
+       H24 -> H89 VARIABLE
+       H25 -> H90 VARIABLE
+       H26 -> )
+       H27 -> H28 ARGUMENT
+       H28 -> VARIABLE H91
+       H29 -> H92 H43
+       H30 -> H93 H43
+       H31 -> H94 H43
+       H32 -> H95 H43
+       H33 -> H96 H43
+       H34 -> H97 H43
+       H35 -> H98 H43
+       H36 -> H99 H43
+       H37 -> H100 H43
+       H38 -> VARIABLE OPERATOR
+       H39 -> H91 VARIABLE
+       H40 -> H101 OPERATOR
+       H41 -> H91 VAL
+       H42 -> newline
+       H43 -> :
+       H44 -> H102 VARIABLE
+       H45 -> H103 H26
+       H46 -> H102 BOOLEAN
+       H47 -> H104 H26
+       H48 -> H105 STRCONTENT
+       H49 -> H106 H10
+       H50 -> H107 H8
+       H51 -> ,
+       H52 -> H108 H109
+       H53 -> VARIABLE H109
+       H54 -> +
+       H55 -> =
+       H56 -> -
+       H57 -> *
+       H58 -> /
+       H59 -> H57 H57
+       H60 -> H58 H58
+       H61 -> &
+       H62 -> ^
+       H63 -> %
+       H64 -> break
+       H65 -> continue
+       H66 -> H110 H43
+       H67 -> VARIABLE H111
+       H68 -> VARIABLE IN
+       H69 -> H108 H112
+       H70 -> STRCONTENT H42
+       H71 -> >
+       H72 -> <
+       H73 -> !
+       H74 -> pass
        H76 -> VARIABLE ASSIGNMENT
-       H77 -> H115 H78
+       H77 -> H114 H78
        H78 -> import
-       H79 -> H116 VARIABLE
-       H80 -> H117 H23
-       H81 -> H82 H58
+       H79 -> H115 VARIABLE
+       H80 -> H116 H26
+       H81 -> H117 H43
        H82 -> H118 FUNCTION
-       H83 -> H119 FUNCTION
-       H84 -> H119 METHOD
+       H83 -> H118 METHOD
+       H84 -> H118 VARIABLE
        H85 -> H119 VARIABLE
-       H86 -> H120 VARIABLE
-       H87 -> H121 H23
-       H88 -> H120 BOOLEAN
-       H89 -> H122 H23
-       H90 -> H3 H123
-       H91 -> H124 H123
-       H92 -> (
-       H93 -> H125 VARIABLE
-       H94 -> H126 H23
-       H95 -> H125 BOOLEAN
-       H96 -> H127 H23
-       H97 -> WHILE IS
-       H98 -> WHILE IN
-       H99 -> WHILE BREAK
-      H100 -> WHILE CONTINUE
-      H101 -> WHILE PASS
-      H102 -> number
-      H103 -> #
-      H104 -> H128 H11
-      H105 -> H129 H9
-      H106 -> variable
-      H107 -> .
-      H108 -> elif
-      H109 -> H130 VARIABLE
-      H110 -> H130 BOOLEAN
-      H111 -> else
-      H112 -> in
-      H113 -> is
-      H115 -> H132 INSTANCE
-      H116 -> class
-      H117 -> H133 INSTANCE
-      H118 -> def
-      H119 -> H134 H112
-      H120 -> if
-      H121 -> H135 VARIABLE
-      H122 -> H135 BOOLEAN
-      H123 -> as
-      H124 -> H78 INSTANCE
-      H125 -> while
-      H126 -> H136 VARIABLE
-      H127 -> H136 BOOLEAN
+       H86 -> H120 H26
+       H87 -> H119 BOOLEAN
+       H88 -> H121 H26
+       H89 -> H3 H122
+       H90 -> H123 H122
+       H91 -> (
+       H92 -> H124 VARIABLE
+       H93 -> H125 H26
+       H94 -> H124 BOOLEAN
+       H95 -> H126 H26
+       H96 -> WHILE IS
+       H97 -> WHILE IN
+       H98 -> WHILE BREAK
+       H99 -> WHILE CONTINUE
+      H100 -> WHILE PASS
+      H101 -> number
+      H102 -> elif
+      H103 -> H127 VARIABLE
+      H104 -> H127 BOOLEAN
+      H105 -> #
+      H106 -> H128 H10
+      H107 -> H129 H8
+      H108 -> variable
+      H109 -> .
+      H110 -> else
+      H111 -> in
+      H112 -> is
+      H114 -> H131 INSTANCE
+      H115 -> class
+      H116 -> H132 INSTANCE
+      H117 -> H133 FUNCTION
+      H118 -> H134 H111
+      H119 -> if
+      H120 -> H135 VARIABLE
+      H121 -> H135 BOOLEAN
+      H122 -> as
+      H123 -> H78 INSTANCE
+      H124 -> while
+      H125 -> H136 VARIABLE
+      H126 -> H136 BOOLEAN
+      H127 -> H102 H91
       H128 -> H137 MULSTR
       H129 -> H138 MULSTR
-      H130 -> H108 H92
-      H132 -> from
-      H133 -> H79 H92
+      H131 -> from
+      H132 -> H79 H91
+      H133 -> def
       H134 -> H140 VARIABLE
-      H135 -> H120 H92
-      H136 -> H125 H92
-      H137 -> H141 H11
-      H138 -> H142 H9
+      H135 -> H119 H91
+      H136 -> H124 H91
+      H137 -> H141 H10
+      H138 -> H142 H8
       H140 -> for
-      H141 -> H11 H11
-      H142 -> H9 H9
+      H141 -> H10 H10
+      H142 -> H8 H8
