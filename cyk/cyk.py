@@ -55,6 +55,8 @@ def clean_tokenized(tokenized):
             inOneLiner = True
             inString = True
         elif tokenized[i] == '\n':
+            if inString and not inOneLiner:
+                tokenized[i] = 'strcontent'
             if inOneLiner:
                     inOneLiner = False
                     inString = False
@@ -103,7 +105,7 @@ def cyk_parse(tokenized, grammar):
     return 'S' in table[0][str_length - 1]
 
 if __name__ == "__main__":
-    tokenized = file_tokenizer("cyk/test.py")
+    tokenized = file_tokenizer("examples/inputAcc.py")
     clean = clean_tokenized(tokenized)
     i = 0
     for token in clean:
