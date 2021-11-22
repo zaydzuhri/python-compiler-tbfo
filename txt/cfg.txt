@@ -11,8 +11,8 @@ BREAK -> break NL;
 CLASS -> class VARIABLE : NL | class VARIABLE ( INSTANCE ) : NL ;
 COMMENT -> " " " MULSTR " " " | ' ' ' MULSTR ' ' ' ;
 CONTINUE -> continue NL;
-DEF -> def FUNCTION : NL S | def FUNCTION NL return VARIABLE NL | def FUNCTION NL return VAL NL;
-ELIF -> elif VARIABLE : | elif ( VARIABLE ) : | elif BOOLEAN : | elif ( BOOLEAN ) : | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS
+DEF -> def FUNCTION : NL S | def FUNCTION NL RETURN | def FUNCTION NL RETURN;
+ELIF -> elif VARIABLE : | elif ( VARIABLE ) : | elif BOOLEAN : | elif ( BOOLEAN ) : | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS;
 ELSE -> else : S;
 EXPRESSION -> VARIABLE OPERATOR VARIABLE | VARIABLE OPERATOR EXPRESSION;
 FOR -> for VARIABLE in FUNCTION : S | for VARIABLE in METHOD : S | for VARIABLE in VARIABLE : S | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS;
@@ -28,11 +28,12 @@ MULSTR -> newline | newline STRCONTENT | STRCONTENT newline | STRCONTENT newline
 NL -> newline | newline S;
 NONE -> none;
 OPERATOR -> + | - | * | / | % | * * | / / | & | ^ | and | or | not | > | < | > = | < = | = = | ! =;
-PASS -> pass ;
+PASS -> pass NL;
 RAISE -> raise VARIABLE | raise FUNCTION;
+RETURN -> return | return VARIABLE NL | return VARIABLE | return VAL NL | return VAL;
 STRCONTENT -> strcontent | STRCONTENT STRCONTENT | VARIABLE | VAL;
 STRING -> ' STRCONTENT ' | " STRCONTENT ";
 VAL -> number | number OPERATOR VAL | NONE | ( VAL ) ;
 VARIABLE -> variable | VARIABLE OPERATOR VARIABLE | VARIABLE OPERATOR VAL | ( VARIABLE ) | BOOLEAN | STRING;
 WHILE -> while VARIABLE : S | while ( VARIABLE ) : S | while BOOLEAN : S | while ( BOOLEAN ) : S | WHILE IS : S | WHILE IN : S | WHILE BREAK : S | WHILE CONTINUE : S | WHILE PASS : S;
-WITH -> with VARIABLE ( ARGUMENT ) as VARIABLE : NL;
+WITH -> with FUNCTION as VARIABLE : NL
