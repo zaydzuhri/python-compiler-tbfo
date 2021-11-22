@@ -1,4 +1,4 @@
-from dfa import accepts, dfa
+from nfa import accepts, nfa
 from tokenizer import file_tokenizer
 
 def get_cnf(file_path):
@@ -73,7 +73,7 @@ def clean_tokenized(tokenized):
                 tokenized[i] = 'true'
             elif tokenized[i] == 'False':
                 tokenized[i] = 'false'
-            elif accepts(dfa, 0, {1}, tokenized[i]):
+            elif accepts(nfa, 0, {1}, tokenized[i]):
                 tokenized[i] = 'variable'
             
     return tokenized
