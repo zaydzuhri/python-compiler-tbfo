@@ -1,27 +1,38 @@
 Terminals:
-false class is return none continue for true def from while and not with as elif if or else import pass break in raise variable
+false class is return none continue for true def from while and not with as elif if or else import pass break in raise variable newline strcontent ( ) . + - * ** / = & ^ % < > , : " ' ! 
 Variables:
-
+S ARGUMENT ASSIGNMENT BOOLEAN BREAK CLASS COMMENT CONTINUE DEF ELIF ELSE EXPRESSION FOR FUNCTION IMPORT IMPORTAS IN INSTANCE IS METHOD MULSTR NL NONE OPERATOR PASS RAISE STRCONTENT STRING VAL VARIABLE WHILE WITH
 Productions:
-BOOLEAN -> true | false;
-CLASS -> class VARIABLE | class VARIABLE ( INSTANCE );
-INSTANCE -> variable | variable . INSTANCE;
-IMPORT -> from INSTANCE import VARIABLE | import VARIABLE;
-IMPORT -> from INSTANCE import VARIABLE as VARIABLE | import INSTANCE as VARIABLE;
-VARIABLE -> variable;
-FUNCTION -> variable ( ARGUMENT ) | variable ( );
+S -> S S | IMPORT | IMPORTAS | CLASS | NL | DEF | FUNCTION | STRING | COMMENT | RAISE | WHILE | FOR | VARIABLE ASSIGNMENT VARIABLE | VARIABLE ASSIGNMENT EXPRESSION | IF;
 ARGUMENT -> VARIABLE | INSTANCE | METHOD | FUNCTION | VARIABLE , | INSTANCE , | METHOD , | FUNCTION , ; 
-METHOD -> variable . FUNCTION;
-IF -> if VARIABLE : | if ( VARIABLE ) : | if BOOLEAN : | if ( BOOLEAN ) : | IF ELIF | IF ELSE | IF IN | IF BREAK | IF CONTINUE | IF PASS
+ASSIGNMENT -> + = | - = | * = | / = | * * = | / / = | & = | ^ = | % = | =;
+BOOLEAN -> true | false;
+BREAK -> break NL;
+CLASS -> class VARIABLE : NL | class VARIABLE ( INSTANCE ) : NL ;
+COMMENT -> " " " MULSTR " " " | ' ' ' MULSTR ' ' ' ;
+CONTINUE -> continue NL;
+DEF -> def FUNCTION : NL S | def FUNCTION NL return VARIABLE NL | def FUNCTION NL return VAL NL;
 ELIF -> elif VARIABLE : | elif ( VARIABLE ) : | elif BOOLEAN : | elif ( BOOLEAN ) : | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS
 ELSE -> else : S;
-IN -> VARIABLE in VARIABLE : S;
-BREAK -> break ;
-CONTINUE -> continue ;
+EXPRESSION -> VARIABLE OPERATOR VARIABLE | VARIABLE OPERATOR EXPRESSION;
+FOR -> for VARIABLE in FUNCTION : S | for VARIABLE in METHOD : S | for VARIABLE in VARIABLE : S | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS;
+FUNCTION -> VARIABLE ( ARGUMENT ) | VARIABLE ( ) ;
+IF -> if VARIABLE : NL | if ( VARIABLE ) : NL | if BOOLEAN : NL | if ( BOOLEAN ) : NL | IF ELIF | IF ELSE | IF IN | IF BREAK | IF CONTINUE | IF PASS | IF IS;
+IMPORT -> from INSTANCE import VARIABLE NL | import VARIABLE NL;
+IMPORTAS -> from INSTANCE import VARIABLE as VARIABLE NL | import INSTANCE as VARIABLE NL;
+IN -> VARIABLE in VARIABLE | VARIABLE in FUNCTION | VARIABLE IN METHOD ;
+INSTANCE -> VARIABLE | VARIABLE . INSTANCE;
+IS -> variable is VARIABLE | variable is VAL;
+METHOD -> variable . FUNCTION;
+MULSTR -> newline | newline STRCONTENT | STRCONTENT newline | STRCONTENT newline MULSTR;
+NL -> newline | newline S;
+NONE -> none;
+OPERATOR -> + | - | * | / | % | * * | / / | & | ^ | and | or | not | > | < | > = | < = | = = | ! =;
 PASS -> pass ;
-WHILE -> while VARIABLE : S | while ( VARIABLE ) : S | while BOOLEAN : S | while ( BOOLEAN ) : S;
-
-
-
-
-WITH -> with FUNCTION : | with FUNCTION as VARIABLE :;
+RAISE -> raise VARIABLE | raise FUNCTION;
+STRCONTENT -> strcontent | STRCONTENT STRCONTENT | VARIABLE | VAL;
+STRING -> ' STRCONTENT ' | " STRCONTENT ";
+VAL -> number | number OPERATOR VAL | NONE | ( VAL ) ;
+VARIABLE -> variable | VARIABLE OPERATOR VARIABLE | VARIABLE OPERATOR VAL | ( VARIABLE ) | BOOLEAN | STRING;
+WHILE -> while VARIABLE : S | while ( VARIABLE ) : S | while BOOLEAN : S | while ( BOOLEAN ) : S | WHILE IS : S | WHILE IN : S | WHILE BREAK : S | WHILE CONTINUE : S | WHILE PASS : S;
+WITH -> with VARIABLE ( ARGUMENT ) as VARIABLE : NL;
