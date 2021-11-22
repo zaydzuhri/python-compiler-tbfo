@@ -1,11 +1,5 @@
-from dfa import accepts, dfa_transitions
+from dfa import accepts, dfa
 from tokenizer import file_tokenizer
-
-regexes = {
-    r'[A-z0-9]*' : ["string"],
-    r'[0-9]*' : ["number"],
-    r'[A-Za-z_][A-Za-z_0-9]*' : ["variable"],
-}
 
 def get_cnf(file_path):
     rules = open(file_path).read().split('\n')
@@ -20,7 +14,48 @@ def get_cnf(file_path):
         cnf_dict.update({left_side : right_side})
     
     return cnf_dict
-    
+
+def clean_tokenized(tokenized):
+    reserved_terms = open("txt/reserved_terms.txt").read().split(' ')
+    inOneLiner = False
+    openString = False
+    closeString = False
+    inString = False
+
+    for i in range(len(tokenized)):
+        if tokenized[i] == '"' or tokenized[i] == "'":
+            if not openString and not inString:
+                openString = True
+                inString = True
+            elif inString:
+                openString = False
+                inString = False
+        elif tokenized[i] == '#':
+            inOneLiner = True
+            inString = True
+        elif tokenized[i] == '\n':
+            if inOneLiner:
+                    inOneLiner = False
+                    inString = False
+        elif (inString or inOneLiner):
+                tokenized[i] = 'strcontent'
+                openString = False
+        
+        if not inString and not inOneLiner and not tokenized[i] in reserved_terms:
+            if tokenized[i] == '\n':
+                tokenized[i] = 'newline'
+            elif tokenized[i].isnumeric():
+                tokenized[i] = 'number'
+            elif tokenized[i] == 'True':
+                tokenized[i] = 'true'
+            elif tokenized[i] == 'False':
+                tokenized[i] = 'false'
+            elif accepts(dfa, 0, {1}, tokenized[i]):
+                tokenized[i] = 'variable'
+            
+    return tokenized
+        
+
 def cyk_parse(tokenized, grammar):
     str_length = len(tokenized)
     grammar_length = len(grammar)
@@ -40,11 +75,12 @@ def cyk_parse(tokenized, grammar):
                         for right_terms in grammar[left_side]:
                             if right_terms[0] in table[start][i] and right_terms[1] in table[i+1][stop]:
                                 table[start][stop].append(left_side)
-
+    
     print(table)
     return 'S' in table[0][str_length - 1]
 
 if __name__ == "__main__":
-    tokenized = file_tokenizer("cyk/test2.py")
-    print(tokenized)
-    print(cyk_parse(tokenized, get_cnf("cyk/cnf.txt")))
+    tokenized = file_tokenizer("cyk/test3.py")
+    clean = clean_tokenized(tokenized)
+    print(clean)
+    print(cyk_parse(clean, get_cnf('txt\cnf.txt')))

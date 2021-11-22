@@ -137,11 +137,11 @@ A3 -> return
 RETURN -> A3 | A3 R11 | A3 VARIABLE | A3 S11 | A3 VAL
 R11 -> VARIABLE NL
 S11 -> VAL NL
-STRCONTENT -> strcontent | STRCONTENT STRCONTENT | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | number | number W11 | U3 X11 | true | false | Q3 T11 | R3 U11 | none
+STRCONTENT -> strcontent | STRCONTENT STRCONTENT | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | number | VAL W11 | U3 X11 | true | false | Q3 T11 | R3 U11 | none
 STRING -> Q3 T11 | R3 U11
 T11 -> STRCONTENT Q3
 U11 -> STRCONTENT R3
-VAL -> number | number W11 | U3 X11 | none
+VAL -> number | VAL W11 | U3 X11 | none
 W11 -> OPERATOR VAL
 X11 -> VAL X12
 X12 -> T3 
