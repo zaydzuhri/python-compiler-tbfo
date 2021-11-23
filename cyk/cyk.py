@@ -105,11 +105,11 @@ def cyk_parse(tokenized, grammar):
     return 'S' in table[0][str_length - 1]
 
 if __name__ == "__main__":
-    tokenized = file_tokenizer("examples/inputAcc.py")
+    tokenized = file_tokenizer("examples/loop.py")
     clean = clean_tokenized(tokenized)
     i = 0
     for token in clean:
         print(i, token)
         i += 1
-    print(cyk_parse(clean, get_cnf('txt/cnfweb.txt')))
+    print(cyk_parse(clean, get_cnf('txt/cnf.txt')))
     
