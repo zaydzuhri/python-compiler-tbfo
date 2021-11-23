@@ -1,0 +1,35 @@
+S -> S newline S | NL | S1
+S1 -> S1 newline S1 | IMPORT | IMPORTAS | CLASS | DEF | FUNCTION | FUNCTION NL | STRING | COMMENT | RAISE | WHILE | FOR | VARIABLE ASSIGNMENT VARIABLE NL | VARIABLE ASSIGNMENT EXPRESSION NL | IF | VARIABLE | VARIABLE ASSIGNMENT VARIABLE | VARIABLE ASSIGNMENT EXPRESSION
+ARGUMENT -> VARIABLE | INSTANCE | METHOD | FUNCTION | VARIABLE , | INSTANCE , | METHOD , | FUNCTION , 
+ASSIGNMENT -> + = | - = | * = | / = | * * = | / / = | & = | ^ = | % = | =
+BOOLEAN -> true | false
+BREAK -> break NL | break
+CLASS -> class VARIABLE : newline S | class VARIABLE ( INSTANCE ) : newline S
+COMMENT -> # STRCONTENT NL | " " " MULSTR " " " NL | ' ' ' MULSTR ' ' ' NL | " " " MULSTR " " " | ' ' ' MULSTR ' ' '
+CONTINUE -> continue NL | continue
+DEF -> def FUNCTION : NL S | def FUNCTION NL RETURN | def FUNCTION NL RETURN | def FUNCTION : newline PASS
+ELIF -> elif VARIABLE : newline S | elif ( VARIABLE ) : newline S | elif BOOLEAN : newline S | elif ( BOOLEAN ) : newline S | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS
+ELSE -> else : newline S | else : newline PASS
+EXPRESSION -> VARIABLE OPERATOR VARIABLE | VARIABLE OPERATOR EXPRESSION
+FOR -> for VARIABLE in FUNCTION : newline S | for VARIABLE in METHOD : newline S | for VARIABLE in VARIABLE : newline S | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS
+FUNCTION -> VARIABLE ( ARGUMENT ) | VARIABLE ( )
+IF -> if VARIABLE : newline S | if ( VARIABLE ) : newline S | if BOOLEAN : newline S | if ( BOOLEAN ) : newline S | IF ELIF | IF ELSE | IF IN | IF BREAK | IF CONTINUE | IF PASS | IF IS
+IMPORT -> from INSTANCE import VARIABLE NL | import VARIABLE NL
+IMPORTAS -> from INSTANCE import VARIABLE as VARIABLE NL | import INSTANCE as VARIABLE NL
+IN -> VARIABLE in VARIABLE | VARIABLE in FUNCTION | VARIABLE IN METHOD 
+INSTANCE -> VARIABLE | VARIABLE . INSTANCE
+IS -> variable is VARIABLE | variable is VAL
+METHOD -> variable . FUNCTION
+MULSTR -> newline | newline STRCONTENT | STRCONTENT newline | STRCONTENT newline MULSTR
+NL -> newline | newline S
+NONE -> none
+OPERATOR -> + | - | * | / | % | * * | / / | & | ^ | and | or | not | > | < | > = | < = | = = | ! =
+PASS -> pass NL | pass
+RAISE -> raise VARIABLE NL | raise FUNCTION NL
+RETURN -> return | return VARIABLE NL | return VARIABLE | return VAL NL | return VAL
+STRCONTENT -> strcontent | STRCONTENT STRCONTENT | VARIABLE | VAL
+STRING -> ' STRCONTENT ' | " STRCONTENT "
+VAL -> number | number OPERATOR VAL | NONE | ( VAL ) 
+VARIABLE -> variable | variable OPERATOR VARIABLE | variable OPERATOR VAL | ( VARIABLE ) | BOOLEAN | STRING | VAL
+WHILE -> while VARIABLE : S | while ( VARIABLE ) : S | while BOOLEAN : S | while ( BOOLEAN ) : S | WHILE IS : S | WHILE IN : S | WHILE BREAK : S | WHILE CONTINUE : S | WHILE PASS : S
+WITH -> with FUNCTION as VARIABLE : newline S
