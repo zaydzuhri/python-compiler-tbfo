@@ -1,182 +1,539 @@
-S -> S A1 | VARIABLE B1 | VARIABLE C1 | IF | I3 F11 | H3 G11 | I3 H11 | H3 I11 | X3 G1 | X3 H1 | newline | NL S | O3 L1 | O3 M1 | O3 N1 | VARIABLE Z1 | VARIABLE A11 | Q3 T11 | R3 U11 | S3 I1 | R3 J1 | Q3 K1 | B3 VARIABLE | B3 FUNCTION | Z2 B21 | Z2 C21 | Z2 D21 | Z2 E21 | WHILE F21 | WHILE G21 | WHILE H21 | WHILE I21 | WHILE J21 | L3 W1 | L3 X1 | L3 Y1 | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none
-A1 -> NL S
-B1 -> ASSIGNMENT B2
-B2 -> VARIABLE NL
-C1 -> ASSIGNMENT C2
-C2 -> EXPRESSION NL
-Z3 -> ,
-ARGUMENT -> VARIABLE Z3 | INSTANCE Z3 | METHOD Z3 | FUNCTION D1 | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | VARIABLE M11 | VARIABLE P11 | VARIABLE Z1 | VARIABLE A11 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none
-D1 -> Z3 
-ASSIGNMENT -> OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | OPERATOR E1 | OPERATOR F1 | OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | =
-E1 -> OPERATOR ASSIGNMENT
-F1 -> OPERATOR ASSIGNMENT
-BOOLEAN -> true | false
-Y3 -> break | VARIABLE Y4
-BREAK -> Y3 NL
-X3 -> class | METHOD X4
-W3 -> : | FUNCTION W4
-CLASS -> X3 G1 | X3 H1
-G1 -> VARIABLE G2
-G2 -> W3 NL
-U3 -> (
-T3 -> )
-H1 -> VARIABLE H2
-H2 -> U3 H3
-H3 -> INSTANCE H4 | import
-H4 -> T3 H5
-H5 -> W3 H6
-H6 -> NL 
-S3 -> #
-COMMENT -> S3 I1 | R3 J1 | Q3 K1
-I1 -> STRCONTENT NL
-R3 -> " | T3 W3
-J1 -> R3 J2
-J2 -> R3 J3
-J3 -> MULSTR J4 | if
-J4 -> R3 J5
-J5 -> R3 R3
-Q3 -> '
-K1 -> Q3 K2
-K2 -> Q3 K3
-K3 -> MULSTR K4 | in
-K4 -> Q3 K5
-K5 -> Q3 K6
-K6 -> Q3 
-P3 -> continue | T3 W3
-CONTINUE -> P3 NL
-O3 -> def
-DEF -> O3 L1 | O3 M1 | O3 N1
-L1 -> FUNCTION L2
-L2 -> W3 L3
-L3 -> NL S | for
-M1 -> FUNCTION M2
-M2 -> NL RETURN
-N1 -> FUNCTION N2
-N2 -> NL RETURN
-N3 -> elif
-ELIF -> N3 O1 | N3 P1 | N3 Q1 | N3 R1 | ELIF ELIF | ELIF ELSE | ELIF IN | ELIF BREAK | ELIF CONTINUE | ELIF PASS
-O1 -> VARIABLE W3
-P1 -> U3 P2
-P2 -> VARIABLE P3
-Q1 -> BOOLEAN W3
-R1 -> U3 R2
-R2 -> BOOLEAN R3
-M3 -> else
-ELSE -> M3 S1
-S1 -> W3 S
-EXPRESSION -> VARIABLE T1 | VARIABLE U1
-T1 -> OPERATOR VARIABLE
-U1 -> OPERATOR EXPRESSION
-FOR -> L3 W1 | L3 X1 | L3 Y1 | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS
-W1 -> VARIABLE W2
-W2 -> K3 W3
-W4 -> W3 S
-X1 -> VARIABLE X2
-X2 -> K3 X3
-X4 -> W3 S
-Y1 -> VARIABLE Y2
-Y2 -> K3 Y3 | with
-Y4 -> W3 S
-FUNCTION -> VARIABLE Z1 | VARIABLE A11
-Z1 -> U3 Z2
-Z2 -> ARGUMENT T3 | while
-A11 -> U3 A12
-A12 -> T3 
-IF -> J3 B11 | J3 C11 | J3 D11 | J3 E11 | IF ELIF | IF ELSE | IF IN | IF BREAK | IF CONTINUE | IF PASS | IF IS
-B11 -> VARIABLE B12
-B12 -> W3 NL
-C11 -> U3 C12
-C12 -> VARIABLE C13
-C13 -> T3 C14
-C14 -> W3 NL
-D11 -> BOOLEAN D12
-D12 -> W3 NL
-E11 -> U3 E12
-E12 -> BOOLEAN E13
-E13 -> T3 E14
-E14 -> W3 NL
-I3 -> from
-IMPORT -> I3 F11 | H3 G11
-F11 -> INSTANCE F12
-F12 -> H3 F13
-F13 -> VARIABLE NL
-G11 -> VARIABLE NL
-G3 -> as
-IMPORTAS -> I3 H11 | H3 I11
-H11 -> INSTANCE H12
-H12 -> H3 H13
-H13 -> VARIABLE H14
-H14 -> G3 H15
-H15 -> VARIABLE NL
-I11 -> INSTANCE I12
-I12 -> G3 I13
-I13 -> VARIABLE NL
-IN -> VARIABLE J11 | VARIABLE K11 | VARIABLE L11
-J11 -> K3 VARIABLE
-K11 -> K3 FUNCTION
-L11 -> IN L12
-L12 -> METHOD 
-F3 -> .
-INSTANCE -> VARIABLE M11 | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none
-M11 -> F3 INSTANCE
-E3 -> is
-IS -> VARIABLE N11 | VARIABLE O11
-N11 -> E3 VARIABLE
-O11 -> E3 VAL
-METHOD -> VARIABLE P11
-P11 -> F3 FUNCTION
-MULSTR -> newline | NL STRCONTENT | STRCONTENT NL | STRCONTENT Q11
-Q11 -> NL MULSTR
-NL -> newline | NL S
-NONE -> none
-OPERATOR -> + | - | * | / | % | OPERATOR OPERATOR | OPERATOR OPERATOR | & | ^ | and | or | not | > | < | OPERATOR ASSIGNMENT | OPERATOR ASSIGNMENT | ASSIGNMENT ASSIGNMENT | D3 ASSIGNMENT
-D3 -> !
-C3 -> pass
-PASS -> C3 NL
-B3 -> raise
-RAISE -> B3 VARIABLE | B3 FUNCTION
-A3 -> return
-RETURN -> A3 | A3 R11 | A3 VARIABLE | A3 S11 | A3 VAL
-R11 -> VARIABLE NL
-S11 -> VAL NL
-STRCONTENT -> strcontent | STRCONTENT STRCONTENT | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | number | VAL W11 | U3 X11 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none | none
-STRING -> Q3 T11 | R3 U11
-T11 -> STRCONTENT Q3
-U11 -> STRCONTENT R3
-VAL -> number | VAL W11 | U3 X11 | none
-W11 -> OPERATOR VAL
-X11 -> VAL X12
-X12 -> T3 
-VARIABLE -> variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none
-Y11 -> OPERATOR VARIABLE
-Z11 -> OPERATOR VAL
-A21 -> VARIABLE T3
-WHILE -> Z2 B21 | Z2 C21 | Z2 D21 | Z2 E21 | WHILE F21 | WHILE G21 | WHILE H21 | WHILE I21 | WHILE J21
-B21 -> VARIABLE B22
-B22 -> W3 S
-C21 -> U3 C22
-C22 -> VARIABLE C23
-C23 -> T3 C24
-C24 -> W3 S
-D21 -> BOOLEAN D22
-D22 -> W3 S
-E21 -> U3 E22
-E22 -> BOOLEAN E23
-E23 -> T3 E24
-E24 -> W3 S
-F21 -> IS F22
-F22 -> W3 S
-G21 -> IN G22
-G22 -> W3 S
-H21 -> BREAK H22
-H22 -> W3 S
-I21 -> CONTINUE I22
-I22 -> W3 S
-J21 -> PASS J22
-J22 -> W3 S
-WITH -> Y2 K21
-K21 -> FUNCTION K22
-K22 -> G3 K23
-K23 -> VARIABLE K24
-K24 -> W3 NL
-S0 -> S A1 | VARIABLE B1 | VARIABLE C1 | IF | I3 F11 | H3 G11 | I3 H11 | H3 I11 | X3 G1 | X3 H1 | newline | NL S | O3 L1 | O3 M1 | O3 N1 | VARIABLE Z1 | VARIABLE A11 | Q3 T11 | R3 U11 | S3 I1 | R3 J1 | Q3 K1 | B3 VARIABLE | B3 FUNCTION | Z2 B21 | Z2 C21 | Z2 D21 | Z2 E21 | WHILE F21 | WHILE G21 | WHILE H21 | WHILE I21 | WHILE J21 | L3 W1 | L3 X1 | L3 Y1 | FOR FOR | FOR IN | FOR BREAK | FOR CONTINUE | FOR PASS | variable | VARIABLE Y11 | VARIABLE Z11 | U3 A21 | true | false | Q3 T11 | R3 U11 | number | VAL W11 | U3 X11 | none
+           S -> H0 S
+              | newline
+              | H1 S
+              | H2 S1
+              | FUNCTION NL
+              | H3 NL
+              | H4 NL
+              | H5 VARIABLE
+              | H5 EXPRESSION
+              | H6 NL
+              | H7 NL
+              | H8 S1
+              | H9 S1
+              | H11 H10
+              | H12 H10
+              | H14 H13
+              | H16 H15
+              | H17 NL
+              | H18 NL
+              | H19 S1
+              | H20 S1
+              | H21 S1
+              | FOR FOR
+              | FOR IN
+              | FOR BREAK
+              | FOR CONTINUE
+              | FOR PASS
+              | H22 S1
+              | H23 S1
+              | IF ELIF
+              | IF ELSE
+              | IF IN
+              | IF BREAK
+              | IF CONTINUE
+              | IF PASS
+              | IF IS
+              | H24 NL
+              | H25 NL
+              | H26 NL
+              | H27 NL
+              | H28 NL
+              | H29 H15
+              | H30 H13
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H35 SFUNCTION
+              | H36 RETURN
+              | H35 PASS
+              | H37 S1
+              | H38 S1
+              | H39 S1
+              | H40 S1
+              | H41 S1
+              | H42 S1
+              | H43 S1
+              | H44 S1
+              | H45 S1
+          S1 -> H2 S1
+              | FUNCTION NL
+              | H3 NL
+              | H4 NL
+              | H5 VARIABLE
+              | H5 EXPRESSION
+              | H6 NL
+              | H7 NL
+              | H8 S1
+              | H9 S1
+              | H11 H10
+              | H12 H10
+              | H14 H13
+              | H16 H15
+              | H17 NL
+              | H18 NL
+              | H19 S1
+              | H20 S1
+              | H21 S1
+              | FOR FOR
+              | FOR IN
+              | FOR BREAK
+              | FOR CONTINUE
+              | FOR PASS
+              | H22 S1
+              | H23 S1
+              | IF ELIF
+              | IF ELSE
+              | IF IN
+              | IF BREAK
+              | IF CONTINUE
+              | IF PASS
+              | IF IS
+              | H24 NL
+              | H25 NL
+              | H26 NL
+              | H27 NL
+              | H28 NL
+              | H29 H15
+              | H30 H13
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H35 SFUNCTION
+              | H36 RETURN
+              | H35 PASS
+              | H37 S1
+              | H38 S1
+              | H39 S1
+              | H40 S1
+              | H41 S1
+              | H42 S1
+              | H43 S1
+              | H44 S1
+              | H45 S1
+   SFUNCTION -> H46 SFUNCTION
+              | H2 S1
+              | FUNCTION NL
+              | H3 NL
+              | H4 NL
+              | H5 VARIABLE
+              | H5 EXPRESSION
+              | H6 NL
+              | H7 NL
+              | H8 S1
+              | H9 S1
+              | H11 H10
+              | H12 H10
+              | H14 H13
+              | H16 H15
+              | H17 NL
+              | H18 NL
+              | H19 S1
+              | H20 S1
+              | H21 S1
+              | FOR FOR
+              | FOR IN
+              | FOR BREAK
+              | FOR CONTINUE
+              | FOR PASS
+              | H22 S1
+              | H23 S1
+              | IF ELIF
+              | IF ELSE
+              | IF IN
+              | IF BREAK
+              | IF CONTINUE
+              | IF PASS
+              | IF IS
+              | H47 RETURN
+              | H48 RETURN
+              | IFFUNCTION IFFUNCTION
+              | IFFUNCTION ELIFFUNCTION
+              | IFFUNCTION ELSEFUNCTION
+              | H24 NL
+              | H25 NL
+              | H26 NL
+              | H27 NL
+              | H28 NL
+              | H29 H15
+              | H30 H13
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | return
+              | H49 NL
+              | H50 VARIABLE
+              | H1 RETURN
+              | RETURN RETURN
+              | H35 SFUNCTION
+              | H36 RETURN
+              | H35 PASS
+              | H37 S1
+              | H38 S1
+              | H39 S1
+              | H40 S1
+              | H41 S1
+              | H42 S1
+              | H43 S1
+              | H44 S1
+              | H45 S1
+    ARGUMENT -> VARIABLE H51
+              | INSTANCE H51
+              | METHOD H51
+              | FUNCTION H51
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | H52 FUNCTION
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H53 INSTANCE
+              | H14 H13
+              | H16 H15
+              | H11 H10
+              | H12 H10
+  ASSIGNMENT -> H54 H55
+              | H56 H55
+              | H57 H55
+              | H58 H55
+              | H59 H55
+              | H60 H55
+              | H61 H55
+              | H62 H55
+              | H63 H55
+              | =
+     BOOLEAN -> true
+              | false
+       BREAK -> H64 NL
+              | break
+    CONTINUE -> H65 NL
+              | continue
+        ELIF -> H66 S1
+              | H67 S1
+              | ELIF ELIF
+              | ELIF ELSE
+              | ELIF IN
+              | ELIF BREAK
+              | ELIF CONTINUE
+              | ELIF PASS
+ELIFFUNCTION -> H68 RETURN
+              | H69 RETURN
+              | ELIFFUNCTION ELSEFUNCTION
+              | ELIF ELSEFUNCTION
+              | ELIF ELIFFUNCTION
+              | H66 S1
+              | H67 S1
+              | ELIF ELIF
+              | ELIF ELSE
+              | ELIF IN
+              | ELIF BREAK
+              | ELIF CONTINUE
+              | ELIF PASS
+        ELSE -> H70 S1
+              | H70 PASS
+ELSEFUNCTION -> H71 RETURN
+  EXPRESSION -> H72 VARIABLE
+              | H72 EXPRESSION
+         FOR -> H19 S1
+              | H20 S1
+              | H21 S1
+              | FOR FOR
+              | FOR IN
+              | FOR BREAK
+              | FOR CONTINUE
+              | FOR PASS
+    FUNCTION -> H11 H10
+              | H12 H10
+          IF -> H22 S1
+              | H23 S1
+              | IF ELIF
+              | IF ELSE
+              | IF IN
+              | IF BREAK
+              | IF CONTINUE
+              | IF PASS
+              | IF IS
+  IFFUNCTION -> H47 RETURN
+              | H48 RETURN
+              | IFFUNCTION IFFUNCTION
+              | IFFUNCTION ELIFFUNCTION
+              | IFFUNCTION ELSEFUNCTION
+              | IFFUNCTION IFFUNCTION
+              | H22 S1
+              | H23 S1
+              | IF ELIF
+              | IF ELSE
+              | IF IN
+              | IF BREAK
+              | IF CONTINUE
+              | IF PASS
+              | IF IS
+          IN -> H73 VARIABLE
+              | H73 FUNCTION
+              | H74 METHOD
+    INSTANCE -> H53 INSTANCE
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H14 H13
+              | H16 H15
+          IS -> H75 VARIABLE
+              | H75 VAL
+      METHOD -> H52 FUNCTION
+      MULSTR -> newline
+              | H1 STRCONTENT
+              | STRCONTENT H1
+              | H76 MULSTR
+          NL -> newline
+              | H1 S
+    OPERATOR -> +
+              | -
+              | *
+              | /
+              | %
+              | H57 H57
+              | H58 H58
+              | &
+              | ^
+              | and
+              | or
+              | not
+              | >
+              | <
+              | H77 H55
+              | H78 H55
+              | H55 H55
+              | H79 H55
+        PASS -> H80 NL
+              | pass
+      RETURN -> return
+              | H49 NL
+              | H50 VARIABLE
+              | H1 RETURN
+              | RETURN RETURN
+  STRCONTENT -> strcontent
+              | STRCONTENT STRCONTENT
+              | variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H14 H13
+              | H16 H15
+         VAL -> number
+              | H33 VAL
+              | H34 H10
+              | none
+    VARIABLE -> variable
+              | H31 VARIABLE
+              | H31 VAL
+              | H32 H10
+              | true
+              | false
+              | number
+              | H33 VAL
+              | H34 H10
+              | none
+              | H14 H13
+              | H16 H15
+       WHILE -> H37 S1
+              | H38 S1
+              | H39 S1
+              | H40 S1
+              | H41 S1
+              | H42 S1
+              | H43 S1
+              | H44 S1
+              | H45 S1
+          H0 -> S H1
+          H1 -> newline
+          H2 -> S1 H1
+          H3 -> H5 VARIABLE
+          H4 -> H5 EXPRESSION
+          H5 -> VARIABLE ASSIGNMENT
+          H6 -> H82 VARIABLE
+          H7 -> H83 VARIABLE
+          H8 -> H84 H1
+          H9 -> H85 H1
+         H10 -> )
+         H11 -> H12 ARGUMENT
+         H12 -> VARIABLE H86
+         H13 -> '
+         H14 -> H13 STRCONTENT
+         H15 -> "
+         H16 -> H15 STRCONTENT
+         H17 -> H87 VARIABLE
+         H18 -> H87 FUNCTION
+         H19 -> H88 H1
+         H20 -> H89 H1
+         H21 -> H90 H1
+         H22 -> H91 H1
+         H23 -> H92 H1
+         H24 -> H93 VARIABLE
+         H25 -> H94 VARIABLE
+         H26 -> H95 STRCONTENT
+         H27 -> H29 H15
+         H28 -> H30 H13
+         H29 -> H96 H15
+         H30 -> H97 H13
+         H31 -> H98 OPERATOR
+         H32 -> H86 VARIABLE
+         H33 -> H99 OPERATOR
+         H34 -> H86 VAL
+         H35 -> H100 H1
+         H36 -> H35 S1
+         H37 -> H102 H101
+         H38 -> H103 H101
+         H39 -> H104 H101
+         H40 -> H105 H101
+         H41 -> H106 H101
+         H42 -> H107 H101
+         H43 -> H108 H101
+         H44 -> H109 H101
+         H45 -> H110 H101
+         H46 -> SFUNCTION H1
+         H47 -> H91 S
+         H48 -> H92 S
+         H49 -> H50 VARIABLE
+         H50 -> return
+         H51 -> ,
+         H52 -> H98 H111
+         H53 -> VARIABLE H111
+         H54 -> +
+         H55 -> =
+         H56 -> -
+         H57 -> *
+         H58 -> /
+         H59 -> H57 H57
+         H60 -> H58 H58
+         H61 -> &
+         H62 -> ^
+         H63 -> %
+         H64 -> break
+         H65 -> continue
+         H66 -> H112 H1
+         H67 -> H113 H1
+         H68 -> H112 S
+         H69 -> H113 S
+         H70 -> H114 H1
+         H71 -> H114 S
+         H72 -> VARIABLE OPERATOR
+         H73 -> VARIABLE H115
+         H74 -> VARIABLE IN
+         H75 -> H98 H116
+         H76 -> STRCONTENT H1
+         H77 -> >
+         H78 -> <
+         H79 -> !
+         H80 -> pass
+         H82 -> H118 H83
+         H83 -> import
+         H84 -> H119 H101
+         H85 -> H120 H101
+         H86 -> (
+         H87 -> raise
+         H88 -> H121 H101
+         H89 -> H122 H101
+         H90 -> H123 H101
+         H91 -> H124 H101
+         H92 -> H125 H101
+         H93 -> H6 H126
+         H94 -> H127 H126
+         H95 -> #
+         H96 -> H128 H15
+         H97 -> H129 H13
+         H98 -> variable
+         H99 -> number
+        H100 -> H130 H101
+        H101 -> :
+        H102 -> H131 VARIABLE
+        H103 -> H132 H10
+        H104 -> H131 BOOLEAN
+        H105 -> H133 H10
+        H106 -> WHILE IS
+        H107 -> WHILE IN
+        H108 -> WHILE BREAK
+        H109 -> WHILE CONTINUE
+        H110 -> WHILE PASS
+        H111 -> .
+        H112 -> H134 H101
+        H113 -> H135 H101
+        H114 -> H136 H101
+        H115 -> in
+        H116 -> is
+        H118 -> H138 INSTANCE
+        H119 -> H139 VARIABLE
+        H120 -> H140 H10
+        H121 -> H141 FUNCTION
+        H122 -> H141 METHOD
+        H123 -> H141 VARIABLE
+        H124 -> H142 VARIABLE
+        H125 -> H143 H10
+        H126 -> as
+        H127 -> H83 INSTANCE
+        H128 -> H144 MULSTR
+        H129 -> H145 MULSTR
+        H130 -> H146 FUNCTION
+        H131 -> while
+        H132 -> H147 VARIABLE
+        H133 -> H147 BOOLEAN
+        H134 -> H148 VARIABLE
+        H135 -> H149 H10
+        H136 -> else
+        H138 -> from
+        H139 -> class
+        H140 -> H151 INSTANCE
+        H141 -> H152 H115
+        H142 -> if
+        H143 -> H153 VARIABLE
+        H144 -> H154 H15
+        H145 -> H155 H13
+        H146 -> def
+        H147 -> H131 H86
+        H148 -> elif
+        H149 -> H156 VARIABLE
+        H151 -> H119 H86
+        H152 -> H158 VARIABLE
+        H153 -> H142 H86
+        H154 -> H15 H15
+        H155 -> H13 H13
+        H156 -> H148 H86
+        H158 -> for
