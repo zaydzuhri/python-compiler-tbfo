@@ -97,12 +97,24 @@ def cyk_parse(tokenized, grammar):
                     if isinstance(grammar[left_side], list):
                         for right_terms in grammar[left_side]:
                             if right_terms[0] in table[start][i] and right_terms[1] in table[i+1][stop]:
-                                table[start][stop].append(left_side)
-    i = 0
-    for elmt in table[0]:
-        print(i, elmt)
-        i += 1
-    return 'S' in table[0][str_length - 1]
+                                if left_side not in table[start][stop]:
+                                    table[start][stop].append(left_side)
+
+    for i in range(str_length):
+        if 'S' in table[0][i]: 
+            last_s = i 
+
+    error_line = 1
+    for i in range(last_s + 1):
+        if tokenized[i] == 'newline' or tokenized[i] == '\n':
+            error_line += 1
+
+    # i = 0
+    # for elmt in table[0]:
+    #     print(i, elmt)
+    #     i += 1
+
+    return 'S' in table[0][str_length - 1], error_line
 
 if __name__ == "__main__":
     tokenized = file_tokenizer("examples/inputAcc.py")
@@ -111,5 +123,6 @@ if __name__ == "__main__":
     for token in clean:
         print(i, token)
         i += 1
-    print(cyk_parse(clean, get_cnf('txt/cnfweb.txt')))
+    result, error_line = cyk_parse(clean, get_cnf('txt/cnf.txt'))
+    print(result, error_line)
     

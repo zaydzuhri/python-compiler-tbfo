@@ -11,6 +11,6 @@ if __name__ == "__main__":
     tokenized = file_tokenizer(file_path)
     clean = clean_tokenized(tokenized)
 
-    result = cyk_parse(clean, get_cnf('txt/cnf.txt'))
+    result, error_line = cyk_parse(clean, get_cnf('txt/cnf.txt'))
 
-    print("Syntax is correct!" if result else "Syntax is wrong.")
+    print("Syntax is correct!" if result else ("Syntax is wrong. Error at line "+str(error_line)))
