@@ -1,3 +1,4 @@
+import time
 from modules.nfa import accepts,nfa
 from modules.tokenizer import file_tokenizer
 
@@ -89,8 +90,12 @@ def cyk_parse(raw_tokenized, tokenized, grammar):
             if tokenized[i] in grammar[left_side]:
                 table[i][i].append(left_side)
 
+    time_last = time.time()
     for length in range(2, str_length + 1):
-        print("Progress: "+str(int((length/str_length)*100))+"%", end='\r')
+        progress = int((length/str_length)*100)
+        delta = time.time() - time_last
+        print(f"Progress: {progress}%   -   Time Elapsed: {round(delta, 2)} s", end='\r')
+
         for start in range(0, str_length - length + 1):
             stop = start + length - 1
             for i in range(start, stop):
