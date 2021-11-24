@@ -1,5 +1,5 @@
-from nfa import accepts, nfa
-from tokenizer import file_tokenizer
+from modules.nfa import accepts,nfa
+from modules.tokenizer import file_tokenizer
 
 def get_cnf(file_path):
     lines = open(file_path).read().splitlines()
@@ -37,7 +37,7 @@ def get_cnf(file_path):
     return cnf_dict
 
 def clean_tokenized(tokenized):
-    reserved_terms = open("txt/reserved_terms.txt").read().split(' ')
+    reserved_terms = open("modules/grammar/reserved_terms.txt").read().split(' ')
     inOneLiner = False
     openString = False
     closeString = False

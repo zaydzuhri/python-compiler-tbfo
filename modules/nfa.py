@@ -1,9 +1,3 @@
-# Source: pythonindo.com
-# Subject : regex check using DFA 
-
-# transitional state of regex ^[a-zA-Z_$][a-zA-Z_$0-9]*$
-# state 0, 1
-# state 1 is final state
 global nfa
 nfa = {0:{'a':1, 'b':1, 'c':1, 'd':1, 'e':1, 'f':1,
             'g':1, 'h':1, 'i':1, 'j':1, 'k':1, 'l':1,
