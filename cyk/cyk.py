@@ -79,7 +79,7 @@ def clean_tokenized(tokenized):
     return tokenized
         
 
-def cyk_parse(tokenized, grammar):
+def cyk_parse(raw_tokenized, tokenized, grammar):
     str_length = len(tokenized)
     grammar_length = len(grammar)
     table = [[[] for i in range(str_length)] for j in range(str_length)]
@@ -90,6 +90,7 @@ def cyk_parse(tokenized, grammar):
                 table[i][i].append(left_side)
 
     for length in range(2, str_length + 1):
+        print("Progress: "+str(int((length/str_length)*100))+"%", end='\r')
         for start in range(0, str_length - length + 1):
             stop = start + length - 1
             for i in range(start, stop):
@@ -99,30 +100,35 @@ def cyk_parse(tokenized, grammar):
                             if right_terms[0] in table[start][i] and right_terms[1] in table[i+1][stop]:
                                 if left_side not in table[start][stop]:
                                     table[start][stop].append(left_side)
-
+    print()
+    
+    last_s = 0
     for i in range(str_length):
         if 'S' in table[0][i]: 
-            last_s = i 
+            last_s = i
 
     error_line = 1
     for i in range(last_s + 1):
-        if tokenized[i] == 'newline' or tokenized[i] == '\n':
+        if '\n' in raw_tokenized[i]:
             error_line += 1
 
     # i = 0
-    # for elmt in table[0]:
-    #     print(i, elmt)
+    # for row in table:
+    #     for elmt in row:
+    #         print(i, elmt)
     #     i += 1
-
+        
     return 'S' in table[0][str_length - 1], error_line
 
 if __name__ == "__main__":
     tokenized = file_tokenizer("examples/inputAcc.py")
-    clean = clean_tokenized(tokenized)
+    tokenized_copy = file_tokenizer("examples/inputAcc.py")
+    
     i = 0
-    for token in clean:
+    for token in tokenized:
         print(i, token)
         i += 1
-    result, error_line = cyk_parse(clean, get_cnf('txt/cnf.txt'))
+
+    result, error_line = cyk_parse(tokenized_copy, clean_tokenized(tokenized), get_cnf('txt/cnf.txt'))
     print(result, error_line)
     
