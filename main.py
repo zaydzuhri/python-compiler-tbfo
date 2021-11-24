@@ -12,7 +12,7 @@ if __name__ == "__main__":
     clean = clean_tokenized(tokenized)
     raw = file_tokenizer(file_path)
 
-    print("\nChecking syntax of " + file_path + "...")
+    print("\nChecking syntax of " + args.file_path + "...")
 
     result, error_line = cyk_parse(raw, clean, get_cnf('modules/grammar/cnf.txt'))
 
